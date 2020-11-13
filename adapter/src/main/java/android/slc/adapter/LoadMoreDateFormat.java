@@ -16,7 +16,7 @@ public class LoadMoreDateFormat {
     protected int offset = 1;
 
     public LoadMoreDateFormat(Context applicationContext) {
-        this.applicationContext = applicationContext;
+        this.applicationContext = applicationContext.getApplicationContext();
     }
 
     public <T, D extends T> void formatSimple(@NonNull SwipeRecycler swipeRecycler, @NonNull List<T> targetList,
@@ -118,7 +118,7 @@ public class LoadMoreDateFormat {
             swipeRecycler.loadMoreComplete();
         }
         if (targetList.isEmpty() && isShowToast) {
-            toast(R.string.cl_label_there_is_no_data_at_present);
+            toast(R.string.label_there_is_no_data_at_present);
             return;
         }
         offset++;
@@ -137,7 +137,7 @@ public class LoadMoreDateFormat {
     }
 
     public void loadMoreFail(SwipeRecycler swipeRecycler, boolean isShowToast) {
-        loadMoreFail(swipeRecycler, R.string.cl_label_data_acquisition_failed, isShowToast);
+        loadMoreFail(swipeRecycler, R.string.label_data_acquisition_failed, isShowToast);
     }
 
     public void loadMoreFail(SwipeRecycler swipeRecycler, @StringRes int toastId) {

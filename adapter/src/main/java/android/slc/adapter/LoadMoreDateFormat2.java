@@ -17,7 +17,7 @@ public class LoadMoreDateFormat2 {
     protected int offset = 1;
 
     public LoadMoreDateFormat2(Context applicationContext, SwipeRecycler swipeRecycler) {
-        this.applicationContext = applicationContext;
+        this.applicationContext = applicationContext.getApplicationContext();
         this.swipeRecycler = swipeRecycler;
     }
 

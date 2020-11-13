@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="cl_label_there_is_no_data_at_present">暂时没有数据</string>
-    <string name="cl_label_data_acquisition_failed">获取数据失败</string>
-</resources>
