@@ -119,7 +119,7 @@ public class LoadMoreDateFormat2 {
             swipeRecycler.loadMoreComplete();
         }
         if (targetList.isEmpty() && isShowToast) {
-            toast(R.string.cl_label_there_is_no_data_at_present);
+            toast(R.string.label_there_is_no_data_at_present);
             return;
         }
         offset++;
@@ -142,7 +142,7 @@ public class LoadMoreDateFormat2 {
     }
 
     public void loadMoreFail(boolean isShowToast) {
-        loadMoreFail(R.string.cl_label_data_acquisition_failed, isShowToast);
+        loadMoreFail(R.string.label_data_acquisition_failed, isShowToast);
     }
 
     public void loadMoreFail(@StringRes int toastId) {
