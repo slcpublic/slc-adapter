@@ -71,7 +71,7 @@ public class PageModel<T> {
     }
 
     public void setIsLastPage(Boolean isLastPage) {
-        isLastPage = isLastPage;
+        this.isLastPage = isLastPage;
     }
 
     public List<T> getList() {
