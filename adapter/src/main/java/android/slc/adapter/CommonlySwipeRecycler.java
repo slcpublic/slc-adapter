@@ -220,6 +220,7 @@ public abstract class CommonlySwipeRecycler<T> extends CommonlyRecycler<T> imple
             } else {
                 throw new NullPointerException("mActivity 或 mView必须其中一个不为空");
             }
+            commonlySwipeRecycler.setLayoutManager(mLayoutManager);
             commonlySwipeRecycler.setOnRefreshingListener(mOnRefreshingListener);
             commonlySwipeRecycler.setOnRefreshListener(mOnRefreshListener);
             commonlySwipeRecycler.setOnSwipeRefreshListener(mSwipeRefreshListener);

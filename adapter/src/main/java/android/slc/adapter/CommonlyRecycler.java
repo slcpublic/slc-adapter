@@ -19,10 +19,10 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import java.util.List;
 
 public abstract class CommonlyRecycler<T> implements Recycler<T> {
-    protected OnRefreshingListener mOnRefreshingListener;
-    protected OnRefreshListener mOnRefreshListener;
     protected RecyclerView mRecyclerView;
     protected RecyclerView.LayoutManager mLayoutManager;
+    protected OnRefreshingListener mOnRefreshingListener;
+    protected OnRefreshListener mOnRefreshListener;
     protected Context mContext;
     protected BaseQuickAdapter<T, BaseViewHolder> mAdapter;
     protected DiffUtil.ItemCallback<T> mItemCallback;
@@ -81,14 +81,6 @@ public abstract class CommonlyRecycler<T> implements Recycler<T> {
         this.mLayoutManager = layoutManager;
     }
 
-    public void setIsAllowTouch(boolean isAllowTouch) {
-        this.mIsAllowTouch = isAllowTouch;
-    }
-
-    public boolean isIsAllowTouch() {
-        return this.mIsAllowTouch;
-    }
-
     public void setOnRefreshingListener(OnRefreshingListener onRefreshingListener) {
         this.mOnRefreshingListener = onRefreshingListener;
     }
@@ -99,6 +91,14 @@ public abstract class CommonlyRecycler<T> implements Recycler<T> {
 
     public void setItemCallback(DiffUtil.ItemCallback<T> mItemCallback) {
         this.mItemCallback = mItemCallback;
+    }
+
+    public void setIsAllowTouch(boolean isAllowTouch) {
+        this.mIsAllowTouch = isAllowTouch;
+    }
+
+    public boolean isIsAllowTouch() {
+        return this.mIsAllowTouch;
     }
 
     /**
@@ -289,6 +289,7 @@ public abstract class CommonlyRecycler<T> implements Recycler<T> {
             } else {
                 throw new NullPointerException("mActivity 或 mView必须其中一个不为空");
             }
+            commonlyRecycler.setLayoutManager(mLayoutManager);
             commonlyRecycler.setOnRefreshingListener(mOnRefreshingListener);
             commonlyRecycler.setOnRefreshListener(mOnRefreshListener);
             commonlyRecycler.setItemCallback(mItemCallback);
