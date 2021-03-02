@@ -145,6 +145,7 @@ public abstract class CommonlySwipeRecycler<T> extends CommonlyRecycler<T> imple
             mSwipeRefreshId = swipeRefreshId;
             return this;
         }
+
         public CommonlySwipeRecyclerBuilder<T> setLayoutManager(RecyclerView.LayoutManager layoutManager) {
             this.mLayoutManager = layoutManager;
             return this;
@@ -201,7 +202,7 @@ public abstract class CommonlySwipeRecycler<T> extends CommonlyRecycler<T> imple
                             mOnLoadAdapterLaterListener.loadAdapterLater(adapter);
                         }
                     }
-                }.initView();
+                };
             } else if (mView != null) {
                 commonlySwipeRecycler = new CommonlySwipeRecycler<T>(mView, mSwipeRefreshId, mRecyclerViewId) {
                     @NonNull
@@ -216,7 +217,7 @@ public abstract class CommonlySwipeRecycler<T> extends CommonlyRecycler<T> imple
                             mOnLoadAdapterLaterListener.loadAdapterLater(adapter);
                         }
                     }
-                }.initView();
+                };
             } else {
                 throw new NullPointerException("mActivity 或 mView必须其中一个不为空");
             }
@@ -227,6 +228,7 @@ public abstract class CommonlySwipeRecycler<T> extends CommonlyRecycler<T> imple
             commonlySwipeRecycler.setOnLoadMoreListener(mOnLoadMoreListener);
             commonlySwipeRecycler.setItemCallback(mItemCallback);
             commonlySwipeRecycler.setIsAllowTouch(mIsAllowTouch);
+            commonlySwipeRecycler.initView();
             return commonlySwipeRecycler;
         }
     }

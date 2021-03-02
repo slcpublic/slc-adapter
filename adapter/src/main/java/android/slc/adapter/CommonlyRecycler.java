@@ -270,7 +270,7 @@ public abstract class CommonlyRecycler<T> implements Recycler<T> {
                             mOnLoadAdapterLaterListener.loadAdapterLater(adapter);
                         }
                     }
-                }.initView();
+                };
             } else if (mView != null) {
                 commonlyRecycler = new CommonlyRecycler<T>(mView, mRecyclerViewId) {
                     @NonNull
@@ -285,7 +285,7 @@ public abstract class CommonlyRecycler<T> implements Recycler<T> {
                             mOnLoadAdapterLaterListener.loadAdapterLater(adapter);
                         }
                     }
-                }.initView();
+                };
             } else {
                 throw new NullPointerException("mActivity 或 mView必须其中一个不为空");
             }
@@ -294,6 +294,7 @@ public abstract class CommonlyRecycler<T> implements Recycler<T> {
             commonlyRecycler.setOnRefreshListener(mOnRefreshListener);
             commonlyRecycler.setItemCallback(mItemCallback);
             commonlyRecycler.setIsAllowTouch(mIsAllowTouch);
+            commonlyRecycler.initView();
             return commonlyRecycler;
         }
     }
