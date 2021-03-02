@@ -22,6 +22,7 @@ public abstract class CommonlyRecycler<T> implements Recycler<T> {
     protected OnRefreshingListener mOnRefreshingListener;
     protected OnRefreshListener mOnRefreshListener;
     protected RecyclerView mRecyclerView;
+    protected RecyclerView.LayoutManager mLayoutManager;
     protected Context mContext;
     protected BaseQuickAdapter<T, BaseViewHolder> mAdapter;
     protected DiffUtil.ItemCallback<T> mItemCallback;
@@ -53,22 +54,31 @@ public abstract class CommonlyRecycler<T> implements Recycler<T> {
      * 初始化视图
      */
     public CommonlyRecycler<T> initView() {
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext) {
-            @Override
-            public boolean canScrollVertically() {
-                return super.canScrollVertically() && mIsAllowTouch;
-            }
+        if (this.mLayoutManager != null) {
+            mRecyclerView.setLayoutManager(this.mLayoutManager);
+        } else {
+            mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext) {
+                @Override
+                public boolean canScrollVertically() {
+                    return super.canScrollVertically() && mIsAllowTouch;
+                }
 
-            @Override
-            public boolean canScrollHorizontally() {
-                return super.canScrollHorizontally() && mIsAllowTouch;
-            }
-        });
+                @Override
+                public boolean canScrollHorizontally() {
+                    return super.canScrollHorizontally() && mIsAllowTouch;
+                }
+            });
+        }
+
         return this;
     }
 
     public RecyclerView getRecyclerView() {
         return mRecyclerView;
+    }
+
+    public void setLayoutManager(RecyclerView.LayoutManager layoutManager) {
+        this.mLayoutManager = layoutManager;
     }
 
     public void setIsAllowTouch(boolean isAllowTouch) {

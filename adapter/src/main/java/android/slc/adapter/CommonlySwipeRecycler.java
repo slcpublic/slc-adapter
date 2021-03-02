@@ -20,8 +20,8 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder;
  * 常用的下拉刷新的SwipeRecycler
  */
 public abstract class CommonlySwipeRecycler<T> extends CommonlyRecycler<T> implements SwipeRecycler<T> {
-    private SwipeRefreshLayout mSwipeRefreshLayout;
-    private OnLoadMoreListener mOnLoadMoreListener;
+    protected SwipeRefreshLayout mSwipeRefreshLayout;
+    protected OnLoadMoreListener mOnLoadMoreListener;
 
     /**
      * 更具activity加载，自定义swipeRefreshLayoutId和recyclerViewId
