@@ -201,14 +201,15 @@ public abstract class CommonlyRecycler<T> implements Recycler<T> {
     }
 
     public static class CommonlyRecyclerBuilder<T> {
-        private Activity mActivity;
-        private View mView;
-        private int mRecyclerViewId = R.id.recyclerView;
-        private OnRefreshingListener mOnRefreshingListener;
-        private OnRefreshListener mOnRefreshListener;
-        private OnLoadAdapterLaterListener<T> mOnLoadAdapterLaterListener;
-        private DiffUtil.ItemCallback<T> mItemCallback;
-        private boolean mIsAllowTouch = true;
+        protected Activity mActivity;
+        protected View mView;
+        protected int mRecyclerViewId = R.id.recyclerView;
+        protected RecyclerView.LayoutManager mLayoutManager;
+        protected OnRefreshingListener mOnRefreshingListener;
+        protected OnRefreshListener mOnRefreshListener;
+        protected OnLoadAdapterLaterListener<T> mOnLoadAdapterLaterListener;
+        protected DiffUtil.ItemCallback<T> mItemCallback;
+        protected boolean mIsAllowTouch = true;
 
         public CommonlyRecyclerBuilder(@NonNull Activity activity) {
             mActivity = activity;
@@ -220,6 +221,11 @@ public abstract class CommonlyRecycler<T> implements Recycler<T> {
 
         public CommonlyRecyclerBuilder<T> setRecyclerViewId(@IdRes int recyclerViewId) {
             mRecyclerViewId = recyclerViewId;
+            return this;
+        }
+
+        public CommonlyRecyclerBuilder<T> setLayoutManager(RecyclerView.LayoutManager layoutManager) {
+            this.mLayoutManager = layoutManager;
             return this;
         }
 

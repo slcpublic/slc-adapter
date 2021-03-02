@@ -10,6 +10,7 @@ import android.view.View;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -114,17 +115,18 @@ public abstract class CommonlySwipeRecycler<T> extends CommonlyRecycler<T> imple
     }
 
     public static class CommonlySwipeRecyclerBuilder<T> {
-        private Activity mActivity;
-        private View mView;
-        private int mRecyclerViewId = R.id.recyclerView;
-        private int mSwipeRefreshId = R.id.swipeRefreshLayout;
-        private OnRefreshingListener mOnRefreshingListener;
-        private OnRefreshListener mOnRefreshListener;
-        private OnLoadAdapterLaterListener<T> mOnLoadAdapterLaterListener;
-        private SwipeRefreshLayout.OnRefreshListener mSwipeRefreshListener;
-        private OnLoadMoreListener mOnLoadMoreListener;
-        private DiffUtil.ItemCallback<T> mItemCallback;
-        private boolean mIsAllowTouch = true;
+        protected Activity mActivity;
+        protected View mView;
+        protected int mRecyclerViewId = R.id.recyclerView;
+        protected int mSwipeRefreshId = R.id.swipeRefreshLayout;
+        protected RecyclerView.LayoutManager mLayoutManager;
+        protected OnRefreshingListener mOnRefreshingListener;
+        protected OnRefreshListener mOnRefreshListener;
+        protected OnLoadAdapterLaterListener<T> mOnLoadAdapterLaterListener;
+        protected SwipeRefreshLayout.OnRefreshListener mSwipeRefreshListener;
+        protected OnLoadMoreListener mOnLoadMoreListener;
+        protected DiffUtil.ItemCallback<T> mItemCallback;
+        protected boolean mIsAllowTouch = true;
 
         public CommonlySwipeRecyclerBuilder(@NonNull Activity activity) {
             mActivity = activity;
@@ -141,6 +143,10 @@ public abstract class CommonlySwipeRecycler<T> extends CommonlyRecycler<T> imple
 
         public CommonlySwipeRecyclerBuilder<T> setSwipeRefreshId(@IdRes int swipeRefreshId) {
             mSwipeRefreshId = swipeRefreshId;
+            return this;
+        }
+        public CommonlySwipeRecyclerBuilder<T> setLayoutManager(RecyclerView.LayoutManager layoutManager) {
+            this.mLayoutManager = layoutManager;
             return this;
         }
 
