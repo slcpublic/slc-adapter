@@ -34,18 +34,16 @@ ext {
     minSdkVersion = 19
     targetSdkVersion = 28
     compileSdkVersion = 30
-    versionCode = 12
-    versionName = "2.0.2"
+    versionCode = 13
+    versionName = "2.0.3"
 
     // App dependencies
-    androidXAppcompat = '+'
-    androidXActivity = '+'
-    androidXFragment = '+'
-    androidXLifecycle = '2.+'
-    androidXConstraintlayout = '+'
-    googleAndroidMaterial = '1.+'
-    androidXRecyclerview = '1.1.0'
+    androidXAppcompat = '1.3.0-beta01'
+    androidXActivity = '1.3.0-alpha04'
+    androidXFragment = '1.3.1'
+    androidXConstraintlayout = '2.0.4'
+    googleAndroidMaterial = '1.4.0-alpha01'
     androidXSwiperefreshlayout = '1.1.0'
 
-    mpVersion = '0.1.3'
+    mpVersion = '0.1.4'
 }
