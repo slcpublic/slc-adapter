@@ -9,12 +9,11 @@ import androidx.collection.SimpleArrayMap;
 public class SelectBox<T> extends SimpleArrayMap<String, Object> {
 
     public SelectBox(T data) {
-        setData(data);
+        this(data, -1);
     }
 
     public SelectBox(T data, int index) {
-        setData(data);
-        setIndex(index);
+        this(data, index, false);
     }
 
     public SelectBox(T data, int index, boolean select) {
