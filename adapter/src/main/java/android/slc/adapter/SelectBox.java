@@ -1,36 +1,49 @@
 package android.slc.adapter;
 
+import androidx.collection.SimpleArrayMap;
+
 /**
  * @author slc
  * @date 2020-08-28 15:53
  */
-public class SelectBox<T> {
-    private T data;
-    private int index;
+public class SelectBox<T> extends SimpleArrayMap<String, Object> {
 
     public SelectBox(T data) {
-        this.data = data;
+        setData(data);
     }
 
     public SelectBox(T data, int index) {
+        setData(data);
+        setIndex(index);
+    }
 
-        this.data = data;
-        this.index = index;
+    public SelectBox(T data, int index, boolean select) {
+        setData(data);
+        setIndex(index);
+        setSelect(select);
     }
 
     public T getData() {
-        return data;
+        return (T) get("data");
     }
 
     public void setData(T data) {
-        this.data = data;
+        put("data", data);
     }
 
     public int getIndex() {
-        return index;
+        return (int) get("index");
     }
 
     public void setIndex(int index) {
-        this.index = index;
+        put("index", index);
+    }
+
+    public boolean isSelect() {
+        return (boolean) get("select");
+    }
+
+    public void setSelect(boolean select) {
+        put("select", select);
     }
 }
