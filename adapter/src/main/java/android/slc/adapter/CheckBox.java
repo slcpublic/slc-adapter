@@ -4,18 +4,18 @@ package android.slc.adapter;
  * @author slc
  * @date 2020-08-28 15:53
  */
-public class SelectBox<T> {
+public class CheckBox<T> {
     private T data;
-    private int index;
+    private boolean select;
 
-    public SelectBox(T data) {
+    public CheckBox(T data) {
         this.data = data;
     }
 
-    public SelectBox(T data, int index) {
+    public CheckBox(T data, boolean select) {
 
         this.data = data;
-        this.index = index;
+        this.select = select;
     }
 
     public T getData() {
@@ -26,11 +26,11 @@ public class SelectBox<T> {
         this.data = data;
     }
 
-    public int getIndex() {
-        return index;
+    public boolean isSelect() {
+        return select;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
+    public void setSelect(boolean select) {
+        this.select = select;
     }
 }
