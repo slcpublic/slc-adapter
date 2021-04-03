@@ -10,7 +10,10 @@ import androidx.annotation.StringRes;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * 推荐使用{@link LoadMoreDateFormat3}
+ */
+@Deprecated
 public class LoadMoreDateFormat2 {
     protected Context applicationContext;
     protected SwipeRecycler swipeRecycler;
