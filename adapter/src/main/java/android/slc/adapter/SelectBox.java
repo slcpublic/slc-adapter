@@ -17,7 +17,7 @@ public class SelectBox<T> extends SimpleArrayMap<String, Object> {
     }
 
     public SelectBox(T data, boolean select) {
-        this(data, -1, false);
+        this(data, -1, select);
     }
 
     public SelectBox(T data, int index, boolean select) {
