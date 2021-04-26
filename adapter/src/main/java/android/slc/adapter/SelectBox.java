@@ -16,14 +16,14 @@ public class SelectBox<T> extends SimpleArrayMap<String, Object> {
         this(data, index, false);
     }
 
-    public SelectBox(T data, boolean select) {
-        this(data, -1, select);
+    public SelectBox(T data, boolean checked) {
+        this(data, -1, checked);
     }
 
-    public SelectBox(T data, int index, boolean select) {
+    public SelectBox(T data, int index, boolean checked) {
         setData(data);
         setSelectIndex(index);
-        setChecked(select);
+        setChecked(checked);
     }
 
     public T getData() {
