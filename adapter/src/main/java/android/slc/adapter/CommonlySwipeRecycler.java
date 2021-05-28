@@ -70,7 +70,9 @@ public abstract class CommonlySwipeRecycler<T> extends CommonlyRecycler<T> imple
     }
 
     public void setOnSwipeRefreshListener(SwipeRefreshLayout.OnRefreshListener onRefreshListener) {
-        mSwipeRefreshLayout.setOnRefreshListener(onRefreshListener);
+        if (mSwipeRefreshLayout != null) {
+            mSwipeRefreshLayout.setOnRefreshListener(onRefreshListener);
+        }
     }
 
     public void setOnLoadMoreListener(OnLoadMoreListener mOnLoadMoreListener) {
