@@ -1,12 +1,12 @@
 package android.slc.adapter;
 
-import androidx.collection.SimpleArrayMap;
+import java.util.LinkedHashMap;
 
 /**
  * @author slc
  * @date 2020-08-28 15:53
  */
-public class SelectBox<T> extends SimpleArrayMap<String, Object> {
+public class SelectBox<T> extends LinkedHashMap<String, Object> {
 
     public SelectBox(T data) {
         this(data, -1);
@@ -35,7 +35,11 @@ public class SelectBox<T> extends SimpleArrayMap<String, Object> {
     }
 
     public int getSelectIndex() {
-        return (int) get("selectIndex");
+        Object value = get("selectIndex");
+        if (value instanceof Integer) {
+            return (int) value;
+        }
+        return -1;
     }
 
     public void setSelectIndex(int index) {
@@ -43,7 +47,11 @@ public class SelectBox<T> extends SimpleArrayMap<String, Object> {
     }
 
     public boolean isChecked() {
-        return (boolean) get("checked");
+        Object value = get("checked");
+        if (value instanceof Boolean) {
+            return (boolean) value;
+        }
+        return false;
     }
 
     public void setChecked(boolean checked) {
