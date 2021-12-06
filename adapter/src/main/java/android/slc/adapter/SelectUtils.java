@@ -15,8 +15,8 @@ public class SelectUtils {
         fillSelect(selectList, selectBoxList, Objects::equals, false);
     }
 
-    public static <T> void fillSelect(List<T> selectList, List<SelectBox<T>> selectBoxList, boolean defFalse) {
-        fillSelect(selectList, selectBoxList, Objects::equals, defFalse);
+    public static <T> void fillSelect(List<T> selectList, List<SelectBox<T>> selectBoxList, boolean maintain) {
+        fillSelect(selectList, selectBoxList, Objects::equals, maintain);
     }
 
     public static <T> void fillSelect(List<T> selectList, List<SelectBox<T>> selectBoxList, Predicate<T> predicate) {
